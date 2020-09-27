@@ -1,0 +1,75 @@
+uuid: 5a0777c8-0adc-4245-b1d2-9361cfea7062
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.lgpd_task.lgpd_sar.manual_data
+    - field.field.lgpd_task.lgpd_sar.sar_export
+    - field.field.lgpd_task.lgpd_sar.sar_export_assets
+    - field.field.lgpd_task.lgpd_sar.sar_export_parts
+    - lgpd_tasks.lgpd_task_type.lgpd_sar
+  module:
+    - file
+    - options
+    - user
+_core:
+  default_config_hash: 87nXJmD9ApemHI9NIpskdaMThdWor5xuJL6IK6Y-bHM
+id: lgpd_task.lgpd_sar.default
+targetEntityType: lgpd_task
+bundle: lgpd_sar
+mode: default
+content:
+  notes:
+    type: basic_string
+    region: content
+    weight: 6
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  processed_by:
+    type: author
+    weight: 5
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  requested_by:
+    label: inline
+    type: author
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  sar_export:
+    type: file_default
+    weight: 2
+    region: content
+    label: inline
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+  sar_export_parts:
+    type: file_default
+    weight: 3
+    region: content
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+  status:
+    type: list_default
+    weight: 1
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  user_id:
+    label: inline
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  manual_data: true
+  sar_export_assets: true

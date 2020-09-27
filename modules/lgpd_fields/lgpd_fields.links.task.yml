@@ -1,0 +1,6 @@
+lgpd_fields.fields_list:
+  route_name: lgpd_fields.fields_list
+  title: 'lgpd field list'
+  base_route: entity.field_storage_config.collection
+  base_route: lgpd_tasks.summary
+  weight: 99

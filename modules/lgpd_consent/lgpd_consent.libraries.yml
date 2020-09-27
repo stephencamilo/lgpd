@@ -1,0 +1,9 @@
+lgpd_consent_display:
+  css:
+    theme:
+      css/lgpd_consent.css: { }
+  js:
+    js/lgpd_consent.js: { }
+  dependencies:
+    - core/jquery
+    - core/drupal

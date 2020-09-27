@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Module file for the lgpd Sql-Dump module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function lgpd_dump_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dump module.
+    case 'help.page.lgpd_dump':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides a drush command for creating lgpd-compliant sql dumps.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

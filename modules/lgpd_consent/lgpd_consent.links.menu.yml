@@ -1,0 +1,7 @@
+# Agreements menu item definition
+entity.lgpd_consent_agreement.collection:
+  title: 'Agreements'
+  route_name: entity.lgpd_consent_agreement.collection
+  description: 'List Agreement Entities'
+  parent: lgpd.admin_lgpd
+  weight: 80

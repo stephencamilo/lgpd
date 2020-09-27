@@ -1,0 +1,30 @@
+lgpd.admin_config:
+  title: 'lgpd'
+  parent: system.admin_config
+  route_name: lgpd.admin_config
+
+lgpd.cheklist:
+  title: 'Checklist'
+  description: 'lgpd Checklist'
+  parent: lgpd.admin_lgpd
+  route_name: checklistapi.checklists.lgpd_checklist
+  weight: 75
+
+lgpd.content_links_form:
+  title: 'Content Links Settings'
+  description: 'lgpd Content Links Settings'
+  parent: lgpd.admin_config
+  route_name: lgpd.content_links_form
+
+lgpd.admin_lgpd:
+  title: lgpd
+  description: 'lgpd'
+  route_name: lgpd.admin_lgpd
+  parent: system.admin
+
+lgpd.admin_configuration:
+  title: 'Configuration'
+  description: 'Configurations related to lgpd'
+  parent: lgpd.admin_lgpd
+  route_name: lgpd.admin_config
+  weight: 110

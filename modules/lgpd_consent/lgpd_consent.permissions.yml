@@ -1,0 +1,8 @@
+manage lgpd agreements:
+  title: 'Manage consent agreements'
+
+grant lgpd any consent:
+  title: 'Grant any consent'
+
+grant lgpd own consent:
+  title: 'Grant own consent'

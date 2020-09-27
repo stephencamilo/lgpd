@@ -1,0 +1,77 @@
+<?php
+
+/**
+ * @file
+ * Module file for the lgpd Fields module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\lgpd_fields\Entity\lgpdField;
+use Drupal\lgpd_fields\Entity\lgpdFieldConfigEntity;
+use Drupal\lgpd_fields\Form\lgpdFieldSettingsForm;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @todo Check user edit permission for lgpd fields.
+ */
+function lgpd_fields_form_field_config_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  /* @var \Drupal\Core\Field\FieldConfigInterface $field */
+  // @todo Check that target entity is a content entity.
+  $field = $form_state->getFormObject()->getEntity();
+
+  // Do not add lgpd settings to the lgpd Consent Agreement form.
+  if ($field->getType() == 'lgpd_user_consent') {
+    return;
+  }
+
+  $form['field']['lgpd_fields'] = [
+    '#type' => 'details',
+    '#title' => t('lgpd field settings'),
+    '#open' => TRUE,
+  ];
+
+  lgpdFieldSettingsForm::buildFormFields($form['field']['lgpd_fields'], $field->getTargetEntityTypeId(), $field->getTargetBundle(), $field->getName());
+
+  $form['actions']['submit']['#submit'][] = 'lgpd_fields_form_field_config_edit_form_submit';
+}
+
+/**
+ * Form submission handler for lgpd_fields_form_field_config_edit_form_alter.
+ *
+ * This version of the lgpd fields form is embedded on the standard field
+ * settings page.
+ *
+ * @param array $form
+ *   The form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state.
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function lgpd_fields_form_field_config_edit_form_submit(array $form, FormStateInterface $form_state) {
+  /* @var \Drupal\Core\Field\FieldConfigInterface $field */
+  $field = $form_state->getFormObject()->getEntity();
+  $entity_type = $field->getTargetEntityTypeId();
+
+  $config = lgpdFieldConfigEntity::load($entity_type);
+
+  if (NULL === $config) {
+    $config = lgpdFieldConfigEntity::create(['id' => $entity_type]);
+  }
+
+  $field_config = new lgpdField([
+    'bundle' => $field->getTargetBundle(),
+    'name' => $field->getName(),
+    'entity_type_id' => $entity_type,
+  ]);
+
+  $field_config->setEnabled($form_state->getValue('lgpd_enabled'))
+    ->setRta($form_state->getValue('lgpd_rta'))
+    ->setRtf($form_state->getValue('lgpd_rtf'))
+    ->setAnonymizer($form_state->getValue('lgpd_anonymizer'))
+    ->setNotes($form_state->getValue('lgpd_notes'));
+
+  $config->setField($field_config);
+  $config->save();
+}

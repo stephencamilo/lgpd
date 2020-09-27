@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.lgpd_task.sar_export
+    - lgpd_tasks.lgpd_task_type.lgpd_sar
+  module:
+    - file
+id: lgpd_task.lgpd_sar.sar_export
+field_name: sar_export
+entity_type: lgpd_task
+bundle: lgpd_sar
+label: Export
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'lgpd-exports'
+  file_extensions: csv
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

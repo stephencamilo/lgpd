@@ -1,0 +1,5 @@
+lgpd_fields.fields_list:
+  title: 'lgpd field list'
+  description: 'List lgpd fields'
+  parent: lgpd.admin_config
+  route_name: lgpd_fields.fields_list

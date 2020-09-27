@@ -1,0 +1,5 @@
+lgpd_dump.settings:
+  title: 'SQL Dump settings'
+  description: 'Settings for the lgpd SQL Dump command'
+  parent: lgpd.admin_config
+  route_name: lgpd_dump.settings

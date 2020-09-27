@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Install file for lgpd_tasks.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function lgpd_tasks_requirements() {
+  $requirements = [];
+  if (
+    FALSE === \Drupal::hasService('stream_wrapper.private')
+    && FALSE === \Drupal::service('file_system')->validScheme('private')
+  ) {
+    $requirements['lgpd_tasks']['title'] = t('Private Files');
+    $requirements['lgpd_tasks']['description'] = t('The private files folder is not set up.');
+    $requirements['lgpd_tasks']['severity'] = REQUIREMENT_ERROR;
+    return $requirements;
+  }
+
+  $destination = 'private://';
+  if (!\is_dir($destination)) {
+    $requirements['lgpd_tasks']['title'] = t('Private Files');
+    $requirements['lgpd_tasks']['description'] = t('The private files folder does not exist.');
+    $requirements['lgpd_tasks']['severity'] = REQUIREMENT_ERROR;
+    return $requirements;
+  }
+
+  if (!\is_writable($destination)) {
+    $requirements['lgpd_tasks']['title'] = t('Private Files');
+    $requirements['lgpd_tasks']['description'] = t('The private files is not writable.');
+    $requirements['lgpd_tasks']['severity'] = REQUIREMENT_ERROR;
+    return $requirements;
+  }
+
+  return $requirements;
+}

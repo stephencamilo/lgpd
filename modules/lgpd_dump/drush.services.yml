@@ -1,0 +1,8 @@
+services:
+  lgpd_dump.commands:
+    class: \Drupal\lgpd_dump\Commands\lgpdDumpCommands
+    arguments:
+      - '@lgpd_dump.sql_dump'
+      - '@lgpd_dump.sanitize'
+    tags:
+      - { name: drush.command }
