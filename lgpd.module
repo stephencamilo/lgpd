@@ -17,6 +17,7 @@ function lgpd_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
     // Main module help for the lgpd module.
     case 'help.page.lgpd':
+
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('Provides help for making your drupal site lgpd-compliant.') . '</p>';
@@ -445,9 +446,8 @@ function _get_modules() {
 
   if (!empty($cache->data)) {
     return $cache->data;
-  }
-  else {
-    $modules_list_raw = system_rebuild_module_data();
+  } else {
+    $modules_list_raw = \Drupal::service('extension.list.module')->reset()->getList();
     $modules_list = [];
 
     foreach ($modules_list_raw as $module) {
