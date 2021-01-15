@@ -9,7 +9,7 @@ use Drupal\user\UserInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class UserController.
+ * Class UserController collects user data.
  *
  * @package Drupal\lgpd\Controller
  */
@@ -94,7 +94,7 @@ class UserController extends ControllerBase {
 
       $fieldValue = $field->getString();
 
-      // @todo: Maybe display as N/A, or as empty?
+      // @todo Maybe display as N/A, or as empty?
       if (empty($fieldValue)) {
         continue;
       }
@@ -103,7 +103,7 @@ class UserController extends ControllerBase {
         $fieldValue = $this->dateFormatter->format($fieldValue, 'medium');
       }
 
-      // @todo: Maybe turn to human readable values?
+      // @todo Maybe turn to human readable values?
       $rows[] = [
         'type' => $key,
         'value' => $fieldValue,

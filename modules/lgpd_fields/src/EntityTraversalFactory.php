@@ -52,7 +52,9 @@ class EntityTraversalFactory {
     $traversal_class = $this->traverser;
     $class = new \ReflectionClass($traversal_class);
     if ($class->implementsInterface(EntityTraversalInterface::class)) {
-      /* @var \Drupal\lgpd_fields\EntityTraversalInterface $instance */
+      /**
+       * @var \Drupal\lgpd_fields\EntityTraversalInterface $instance
+       */
       $instance = $traversal_class::create($this->container, $entity);
       return $instance;
     }

@@ -9,7 +9,7 @@ use Drupal\Core\Language\LanguageManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class ContentLinksForm.
+ * Class ContentLinksForm Configuration form.
  *
  * @see \Drupal\link\Plugin\Field\FieldType\LinkItem
  * @see \Drupal\link\Plugin\Field\FieldWidget\LinkWidget
@@ -18,7 +18,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class ContentLinksForm extends ConfigFormBase {
 
-  const lgpd_CONTENT_CONF_KEY = 'lgpd.content_mapping';
+  const LGPD_CONTENT_CONF_KEY = 'lgpd.content_mapping';
 
   /**
    * The language manager.

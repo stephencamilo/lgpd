@@ -7,7 +7,7 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Plugin\DefaultPluginManager;
 
 /**
- * Class ConsentUserResolverPluginManager.
+ * Class Consent User Resolver Plugin Manager.
  *
  * @package Drupal\lgpd_consent\Resolver
  */
