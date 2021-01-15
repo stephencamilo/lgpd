@@ -1,0 +1,21 @@
+lgpd_tasks.request_export:
+  route_name: lgpd_tasks.request
+  route_parameters:
+    lgpd_task_type: 'lgpd_sar'
+  title: 'Request data export'
+  appears_on:
+    - view.lgpd_tasks_my_data_requests.page_1
+
+lgpd_tasks.request_remove:
+  route_name: lgpd_tasks.request
+  route_parameters:
+    lgpd_task_type: 'lgpd_remove'
+  title: 'Request data removal'
+  appears_on:
+    - view.lgpd_tasks_my_data_requests.page_1
+
+entity.lgpd_task_type.add_form:
+  route_name: entity.lgpd_task_type.add_form
+  title: 'Add Task type'
+  appears_on:
+    - entity.lgpd_task_type.collection

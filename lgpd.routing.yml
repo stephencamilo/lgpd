@@ -1,0 +1,41 @@
+lgpd.collected_user_data:
+  path: '/user/{user}/lgpd'
+  defaults:
+    _title: 'Data stored about you'
+    _controller: '\Drupal\lgpd\Controller\UserController::collectedData'
+  requirements:
+    _custom_access: '\Drupal\lgpd\Controller\UserController::accessCollectedData'
+  options:
+    parameters:
+      user:
+        type: entity:user
+
+lgpd.admin_config:
+  path: '/admin/config/lgpd'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'lgpd'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE
+
+lgpd.content_links_form:
+  path: '/admin/config/lgpd/content-links'
+  defaults:
+    _title: 'Content links config'
+    _form: \Drupal\lgpd\Form\ContentLinksForm
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE
+
+lgpd.admin_lgpd:
+  path: '/admin/lgpd'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'lgpd'
+  requirements:
+    _permission: 'administer lgpd settings'
+  options:
+    _admin_route: TRUE

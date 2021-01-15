@@ -1,0 +1,17 @@
+name: General Data Protection Law (lgpd) - Fields
+description: Allow tracking and removing of user data in all fields.
+type: module
+package: General Data Protection Law
+
+php: '7.1'
+
+dependencies:
+  - drupal:system (>=8.0.0)
+  - lgpd:lgpd
+  - lgpd:anonymizer
+
+core_version_requirement: ^8.8 || ^9
+
+version: '9.x-0.0-alpha1'
+project: 'lgpd'
+datestamp: 1587893591

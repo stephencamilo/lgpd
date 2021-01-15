@@ -1,0 +1,19 @@
+name: General Data Protection Law (lgpd) - Obfuscated SQL Dump
+description: Provides a drush command for obfuscating database dumps.
+type: module
+package: General Data Protection Law
+
+configure: lgpd_dump.settings
+
+php: '7.1'
+
+dependencies:
+  - drupal:system (>=8.4.0)
+  - lgpd:lgpd
+  - lgpd:anonymizer
+
+core_version_requirement: ^8.8 || ^9
+
+version: '9.x-0.0-alpha1'
+project: 'lgpd'
+datestamp: 1587893591

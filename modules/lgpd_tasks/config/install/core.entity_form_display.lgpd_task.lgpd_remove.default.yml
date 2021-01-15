@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.lgpd_task.lgpd_remove.removal_log
+    - lgpd_tasks.lgpd_task_type.lgpd_remove
+third_party_settings: {  }
+id: lgpd_task.lgpd_remove.default
+targetEntityType: lgpd_task
+bundle: lgpd_remove
+mode: default
+content: {  }
+hidden:
+  status: true
+  user_id: true

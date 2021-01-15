@@ -1,0 +1,28 @@
+# Task menu items definition
+entity.lgpd_task.collection:
+  title: 'Task list'
+  route_name: entity.lgpd_task.collection
+  description: 'List Task entities'
+  parent: lgpd.admin_lgpd
+  weight: 100
+
+# Task type menu items definition
+entity.lgpd_task_type.collection:
+  title: 'Task type'
+  route_name: entity.lgpd_task_type.collection
+  description: 'List Task type (bundles)'
+  parent: lgpd.admin_lgpd
+  weight: 99
+
+lgpd_tasks.remove_settings:
+  title: 'Right to be Forgotten'
+  description: 'lgpd Right to be Forgotten Settings'
+  parent: lgpd.admin_config
+  route_name: lgpd_tasks.remove_settings
+
+lgpd_tasks.summary:
+  title: 'Summary'
+  route_name: lgpd_tasks.summary
+  description: 'lgpd Summary'
+  parent: lgpd.admin_lgpd
+  weight: 70

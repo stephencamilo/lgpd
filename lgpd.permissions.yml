@@ -1,0 +1,7 @@
+administer lgpd settings:
+  title: 'Administer lgpd Settings'
+  restrict access: true
+
+view lgpd data summary:
+  title: 'Access lgpd Data Summary'
+  description: 'Allows users to access their data without staff involvement.'

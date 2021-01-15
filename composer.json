@@ -1,0 +1,31 @@
+{
+    "name": "drupal/lgpd",
+    "description": "Helps with making a site lgpd-compliant.",
+    "type": "drupal-module",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "mhavelant",
+            "email": "mhavelant@brainsum.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "ext-zip": "*",
+        "drupal/core": "~8.4",
+        "drush/drush": "~9.0",
+        "cweagans/composer-patches": "~1.0",
+        "drupal/checklistapi": "^1.0",
+        "drupal/entity": "^1.0",
+        "drupal/entity_reference_revisions": "^1.4",
+        "drupal/message": "^1.0",
+        "drupal/token": "^1.1",
+        "fzaninotto/faker": "^1.7"
+    }
+}

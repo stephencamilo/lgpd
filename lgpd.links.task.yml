@@ -1,0 +1,10 @@
+lgpd.collected_user_data:
+  title: 'All your data'
+  route_name: lgpd.collected_user_data
+  base_route: entity.user.canonical
+
+lgpd.collected_user_data_default:
+  title: 'Summary'
+  parent_id: lgpd.collected_user_data
+  route_name: lgpd.collected_user_data
+  base_route: entity.user.canonical

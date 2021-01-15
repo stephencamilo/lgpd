@@ -1,0 +1,32 @@
+view lgpd data summary:
+  title: 'Access lgpd Data Summary'
+  description: 'Allows users to access their data without staff involvement'
+
+create lgpd tasks:
+  title: 'Create lgpd tasks'
+
+view lgpd tasks:
+  title: 'View lgpd tasks'
+  description: 'Allow a user to view completed tasks that they requested'
+
+#edit lgpd tasks:
+#  title: 'Edit lgpd tasks'
+add task entities:
+  title: 'Create new Task entities'
+
+administer task entities:
+  title: 'Administer Task entities'
+  description: 'Allow to access the administration form to configure Task entities.'
+  restrict access: true
+
+delete task entities:
+  title: 'Delete Task entities'
+  description: 'Allows staff to delete lgpd tasks'
+
+edit task entities:
+  title: 'Edit Task entities'
+  description: 'Allows staff to edit lgpd tasks'
+
+view task entities:
+  title: 'View Task entities'
+  description: 'Allows staff to view the list of lgpd tasks'

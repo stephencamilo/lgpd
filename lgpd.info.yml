@@ -1,0 +1,16 @@
+name: General Data Protection Law (lgpd)
+description: Provides help for making your drupal site lgpd-compliant.
+type: module
+configure: checklistapi.checklists.lgpd_checklist
+package: General Data Protection Law
+
+php: '7.1'
+
+dependencies:
+  - checklistapi:checklistapi
+
+core_version_requirement: ^8.8 || ^9
+
+version: '9.x-0.0-alpha1'
+project: 'lgpd'
+datestamp: 1587893591

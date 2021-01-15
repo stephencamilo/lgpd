@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - lgpd_tasks
+id: lgpd_task.removal_log
+field_name: removal_log
+entity_type: lgpd_task
+type: lgpd_task_item
+settings: {  }
+module: lgpd_tasks
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

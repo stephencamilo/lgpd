@@ -1,0 +1,4 @@
+services:
+  plugin.manager.lgpd_consent_resolver:
+    class: Drupal\lgpd_consent\ConsentUserResolver\ConsentUserResolverPluginManager
+    parent: default_plugin_manager

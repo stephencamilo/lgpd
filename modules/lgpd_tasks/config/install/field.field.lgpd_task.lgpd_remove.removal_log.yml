@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.lgpd_task.removal_log
+    - lgpd_tasks.lgpd_task_type.lgpd_remove
+  module:
+    - lgpd_tasks
+id: lgpd_task.lgpd_remove.removal_log
+field_name: removal_log
+entity_type: lgpd_task
+bundle: lgpd_remove
+label: 'Removal Log'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: lgpd_task_item

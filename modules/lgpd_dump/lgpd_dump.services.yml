@@ -1,0 +1,21 @@
+services:
+  lgpd_dump.sql_dump:
+    class: \Drupal\lgpd_dump\Service\lgpdSqlDump
+    arguments:
+      - '@config.factory'
+      - '@database'
+      - '@lgpd_dump.database_manager'
+      - '@anonymizer.anonymizer_factory'
+
+  lgpd_dump.sanitize:
+    class: \Drupal\lgpd_dump\Service\lgpdSanitize
+    arguments:
+      - '@config.factory'
+      - '@database'
+      - '@lgpd_dump.database_manager'
+      - '@anonymizer.anonymizer_factory'
+
+  lgpd_dump.database_manager:
+    class: \Drupal\lgpd_dump\Service\lgpdDatabaseManager
+    arguments:
+      - '@database'

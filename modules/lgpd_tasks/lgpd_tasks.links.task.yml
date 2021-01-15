@@ -1,0 +1,32 @@
+lgpd_tasks.summary:
+  route_name: lgpd_tasks.summary
+  title: 'lgpd Summary'
+  base_route: lgpd_tasks.summary
+
+view.lgpd_tasks_my_data_requests.page_1:
+  title: 'My data requests'
+  parent_id: lgpd.collected_user_data
+  route_name: view.lgpd_tasks_my_data_requests.page_1
+  base_route: entity.user.canonical
+
+entity.lgpd_task.collection:
+  title: 'Tasks'
+  route_name: entity.lgpd_task.collection
+  base_route: entity.lgpd_task.collection
+
+entity.lgpd_task_type.collection:
+  title: 'Task Types'
+  route_name: entity.lgpd_task_type.collection
+  base_route: entity.lgpd_task.collection
+
+# Task routing definition
+entity.lgpd_task.canonical:
+  route_name: entity.lgpd_task.canonical
+  base_route: entity.lgpd_task.canonical
+  title: 'View'
+
+entity.lgpd_task.delete_form:
+  route_name:  entity.lgpd_task.delete_form
+  base_route:  entity.lgpd_task.canonical
+  title: Delete
+  weight: 10

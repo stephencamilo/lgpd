@@ -1,0 +1,5 @@
+langcode: en
+status: true
+dependencies: {  }
+id: lgpd_remove
+label: 'Removal Request'

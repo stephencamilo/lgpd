@@ -1,0 +1,31 @@
+lgpd_tasks.summary:
+  path: '/admin/lgpd/summary'
+  defaults:
+    _controller: '\Drupal\lgpd_tasks\Controller\lgpdController::summaryPage'
+    _title: 'lgpd Summary'
+  requirements:
+    _permission: 'view lgpd tasks'
+
+lgpd_tasks.request:
+  path: '/user/{user}/lgpd-request/{lgpd_task_type}'
+  defaults:
+    _controller: '\Drupal\lgpd_tasks\Controller\lgpdController::requestPage'
+    _title: 'Create Data Request'
+  requirements:
+    _permission: 'create lgpd tasks'
+  options:
+    parameters:
+      lgpd_task_type:
+        type: string
+      user:
+        type: entity:user
+
+lgpd_tasks.remove_settings:
+  path: '/admin/config/lgpd/remove-settings'
+  defaults:
+    _form: '\Drupal\lgpd_tasks\Form\RemovalSettingsForm'
+    _title: 'Right to be Forgotten'
+  requirements:
+    _permission: 'administer task entities'
+  options:
+    _admin_route: TRUE

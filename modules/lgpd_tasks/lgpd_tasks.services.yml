@@ -1,0 +1,19 @@
+services:
+  lgpd_tasks.manager:
+    class: Drupal\lgpd_tasks\TaskManager
+    arguments: ['@entity_type.manager', '@current_user']
+  lgpd_tasks.anonymizer:
+    class: Drupal\lgpd_tasks\Anonymizer
+    arguments: ['@database', '@entity_type.manager', '@current_user', '@config.factory', '@lgpd_tasks.rtf_traversal']
+  lgpd_tasks.rta_traversal:
+    class: Drupal\lgpd_fields\EntityTraversalFactory
+    arguments: ['@service_container', 'Drupal\lgpd_tasks\Traversal\RightToAccessEntityTraversal']
+  lgpd_tasks.rta_display_traversal:
+    class: Drupal\lgpd_fields\EntityTraversalFactory
+    arguments: ['@service_container', '\Drupal\lgpd_tasks\Traversal\RightToAccessDisplayTraversal']
+  lgpd_tasks.rtf_traversal:
+    class: Drupal\lgpd_fields\EntityTraversalFactory
+    arguments: ['@service_container', '\Drupal\lgpd_tasks\Traversal\RightToBeForgottenEntityTraversal']
+  lgpd_tasks.rtf_display_traversal:
+    class: Drupal\lgpd_fields\EntityTraversalFactory
+    arguments: ['@service_container', '\Drupal\lgpd_tasks\Traversal\RightToBeForgottenDisplayTraversal']

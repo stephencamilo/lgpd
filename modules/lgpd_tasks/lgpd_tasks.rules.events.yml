@@ -1,0 +1,18 @@
+lgpd_tasks.rules_rta_complete:
+  label: 'Data access request completed'
+  category: 'lgpd'
+  context:
+    user:
+        type: 'entity:user'
+        label: 'The user'
+    link:
+      type: 'string'
+      label: 'The URL to download the report'
+
+lgpd_tasks.rules_rtf_complete:
+  label: 'Right to be forgotten completed'
+  category: 'lgpd'
+  context:
+    email:
+      type: 'string'
+      label: 'The email address of the recipient'

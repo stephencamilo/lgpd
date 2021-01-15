@@ -1,0 +1,10 @@
+field.field.*.*.*.third_party.lgpd_fields:
+  type: mapping
+  label: 'lgpd field'
+  mapping:
+    lgpd_fields_rta:
+        type: string
+        label: 'Whether this field is user sensitive or not.'
+    lgpd_fields_rtf:
+        type: string
+        label: 'Whether this field is user sensitive or not.'

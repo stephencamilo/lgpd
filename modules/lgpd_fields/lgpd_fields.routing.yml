@@ -1,0 +1,15 @@
+lgpd_fields.fields_list:
+  path: '/admin/reports/fields/lgpd-fields'
+  defaults:
+    _controller: '\Drupal\lgpd_fields\Controller\lgpdController::fieldsList'
+    _title: 'Used in lgpd'
+    mode: 'all'
+  requirements:
+    _permission: 'view lgpd fields'
+
+lgpd_fields.edit_field:
+  path: '/admin/lgpd/fields/{entity_type}/{bundle_name}/{field_name}'
+  defaults:
+    _form: 'Drupal\lgpd_fields\Form\lgpdFieldSettingsForm'
+  requirements:
+    _permission: 'view lgpd fields'

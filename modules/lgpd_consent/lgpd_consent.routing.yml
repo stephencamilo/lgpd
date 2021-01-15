@@ -1,0 +1,16 @@
+lgpd_consent.agreements:
+  path: '/user/{user}/lgpd/agreements'
+  defaults:
+    _controller: '\Drupal\lgpd_consent\Controller\ConsentAgreementController::myAgreements'
+  requirements:
+    _permission: 'administer users'
+    user_id: \d+
+
+entity.lgpd_consent_agreement.version_history:
+  path: '/admin/lgpd/agreements/{lgpd_consent_agreement}/revisions'
+  defaults:
+    _title: 'Revisions'
+    _controller: '\Drupal\lgpd_consent\Controller\ConsentAgreementController::revisionOverview'
+  requirements:
+    _permission: 'manage lgpd agreements'
+    lgpd_consent_agreement: \d+
