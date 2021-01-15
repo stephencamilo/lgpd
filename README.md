@@ -1,15 +1,13 @@
-General Data Protection Law
+LGPD
 ==================================
-
-[![Build Status](https://travis-ci.org/brainsum/lgpd.svg?branch=8.x-2.x)](https://travis-ci.org/brainsum/lgpd)
 
 
 INTRODUCTION
 ------------
 
-The General Data Protection Law module gives end-user visibility to the
+The LGPD module gives end-user visibility to the
 data stored about themselves and aims to help site admins follow the guidelines
-and legislation set by the EU.
+and legislation set by the Brasilian Government.
 
 Please note:
 Installing and using this module pack does not mean the site becomes lgpd
@@ -80,26 +78,6 @@ Planned Features:
  * Make API for other contrib modules to announce user data stored
 
 
-MAINTAINERS
------------
-
- * Levente Besenyei (lbesenyei) - https://www.drupal.org/u/lbesenyei
- * Peter Pónya (pedrop) - https://www.drupal.org/u/pedrop
- * Máté Havelant (mhavelant) - https://www.drupal.org/u/mhavelant
- * Marko Korhonen (back-2-95) - https://www.drupal.org/u/back-2-95
- * Roni Kantis (bfr) - https://www.drupal.org/u/bfr
-
-Supporting organizations:
-
-Initial kick-off, MVP for D7, funding further development
-
- * Druid - https://www.drupal.org/druid
-
-Porting MVP to D8, further development
-
- * Brainsum - https://www.drupal.org/brainsum
-
-
 CONTRIBUTION
 ------------
 
@@ -109,7 +87,7 @@ On drupal.org - https://www.drupal.org/project/lgpd
 Feel free to open new issues or comment on existing ones. New ideas and patches are welcome!
 
 
-On github.com - https://github.com/brainsum/lgpd
+On github.com - https://github.com/stephencamilo/lgpd
 ------------------------------------------------
 Workflow:
 
@@ -128,3 +106,6 @@ Additional requests:
 
 * Please follow the drupal coding standards
     * See: Coder module - https://www.drupal.org/project/coder
+# lgpd
+# lgpd
+# lgpd
