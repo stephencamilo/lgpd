@@ -3,11 +3,11 @@
 namespace Drupal\lgpd_dump\Service;
 
 /**
- * Class lgpdSqlDump.
+ * Class Lgpd Sql Dump.
  *
  * @package Drupal\lgpd_dump\Service
  */
-class lgpdSanitize extends lgpdSqlDump {
+class LgpdSanitize extends LgpdSqlDump {
 
   /**
    * Go through the data and sanitize it.

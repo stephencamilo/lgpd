@@ -9,11 +9,11 @@ use Drush\Log\LogLevel;
 use Drush\Sql\SqlMysql;
 
 /**
- * Class lgpdSqlMysql.
+ * Class Lgpd Sql Mysql.
  *
  * @package Drupal\lgpd_dump\Sql
  */
-class lgpdSqlMysql extends SqlMysql {
+class LgpdSqlMysql extends SqlMysql {
 
   /**
    * The config for lgpd dump.
@@ -57,7 +57,7 @@ class lgpdSqlMysql extends SqlMysql {
     $fileSuffix = '';
     $tableSelection = $this->getExpandedTableSelection($this->getOptions(), $this->listTables());
     $file = $this->dumpFile($file);
-    // @todo: Cross-platform check.
+    // @todo Cross-platform check.
     $cmd = '{ ';
     $cmd .= $this->dumpCmd($tableSelection);
     // Append the RENAME commands at the end.
@@ -163,7 +163,7 @@ class lgpdSqlMysql extends SqlMysql {
       $exec .= ' ' . \implode(' ', $tables);
     }
     else {
-      // @todo: Maybe use --ignore-table={db.table1,db.table2,...} syntax.
+      // @todo Maybe use --ignore-table={db.table1,db.table2,...} syntax.
       // Append the ignore-table options.
       $dbSpec = $this->getDbSpec();
       foreach ($skipTables as $table) {

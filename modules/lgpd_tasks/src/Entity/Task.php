@@ -8,6 +8,7 @@ use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\user\UserInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * Defines the Task entity.
@@ -55,6 +56,7 @@ use Drupal\user\UserInterface;
 class Task extends ContentEntityBase implements TaskInterface {
 
   use EntityChangedTrait;
+  use StringTranslationTrait;
 
   /**
    * {@inheritdoc}
@@ -145,7 +147,7 @@ class Task extends ContentEntityBase implements TaskInterface {
    * {@inheritdoc}
    */
   public function label() {
-    return t('Task @id', ['@id' => $this->id()]);
+    return $this->t('Task @id', ['@id' => $this->id()]);
   }
 
   /**

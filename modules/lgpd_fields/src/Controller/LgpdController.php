@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 /**
  * Returns responses for lgpd Field routes.
  */
-class lgpdController extends ControllerBase {
+class LgpdController extends ControllerBase {
 
   /**
    * Stores the Views data cache object.
@@ -95,7 +95,10 @@ class lgpdController extends ControllerBase {
             $at_least_one_bundle_has_fields = TRUE;
             $output[$entity_type_id][$bundle_id] = [
               '#type' => 'details',
-              '#title' => new TranslatableMarkup('%label [%bundle]', ['%label' => $bundle_info['label'], '%bundle' => $bundle_id]),
+              '#title' => new TranslatableMarkup('%label [%bundle]', [
+                '%label' => $bundle_info['label'],
+                '%bundle' => $bundle_id,
+              ]),
               '#open' => TRUE,
             ];
             $output[$entity_type_id][$bundle_id]['fields'] = $field_table;

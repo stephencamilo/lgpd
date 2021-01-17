@@ -4,6 +4,7 @@ namespace Drupal\lgpd_consent\Entity;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityListBuilder;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * Provides a list controller for lgpd_consent entities.
@@ -12,13 +13,15 @@ use Drupal\Core\Entity\EntityListBuilder;
  */
 class ConsentAgreementListBuilder extends EntityListBuilder {
 
+  use StringTranslationTrait;
+
   /**
    * {@inheritdoc}
    */
   public function buildHeader() {
     $header = [
-      'title' => t('Title'),
-      'mode' => t('Implicit/Explicit'),
+      'title' => $this->t('Title'),
+      'mode' => $this->t('Implicit/Explicit'),
     ];
     return $header + parent::buildHeader();
   }

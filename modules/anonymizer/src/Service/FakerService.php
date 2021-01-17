@@ -5,7 +5,7 @@ namespace Drupal\anonymizer\Service;
 use Faker\Factory;
 
 /**
- * Class FakerService.
+ * Class Faker Service.
  *
  * @package Drupal\anonymizer\Service
  */

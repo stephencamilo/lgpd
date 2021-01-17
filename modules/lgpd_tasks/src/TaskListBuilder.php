@@ -67,7 +67,7 @@ class TaskListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    /* @var $entity \Drupal\lgpd_tasks\Entity\Task */
+    /** @var \Drupal\lgpd_tasks\Entity\Task $entity */
     $row['id'] = $entity->id();
     $row['name'] = Link::createFromRoute(
       $entity->label(),
@@ -174,7 +174,7 @@ class TaskListBuilder extends EntityListBuilder {
         'tags' => $this->entityType->getListCacheTags(),
       ],
     ];
-    /* @var $entity \Drupal\lgpd_tasks\Entity\Task */
+    /** @var \Drupal\lgpd_tasks\Entity\Task $entity */
     foreach ($this->load() as $entity) {
       if ($row = $this->buildRow($entity)) {
         $build[$entity->status->value]['table']['#rows'][$entity->id()] = $row;

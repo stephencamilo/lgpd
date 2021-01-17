@@ -7,13 +7,13 @@ use Drush\Drush;
 use Drush\Sql\SqlBase;
 
 /**
- * Class lgpdSqlBase.
+ * Class Lgpd Sql Base.
  *
  * @see \Drush\Sql\SqlBase
  *
  * @package Drupal\lgpd_dump\Sql
  */
-class lgpdSqlBase extends SqlBase {
+class LgpdSqlBase extends SqlBase {
 
   /**
    * Get a driver specific instance of this class.
@@ -64,9 +64,9 @@ class lgpdSqlBase extends SqlBase {
     $driver = $dbSpec['driver'];
     $className = 'Drupal\lgpd_dump\Sql\lgpdSql' . ucfirst($driver);
 
-    // @todo: Maybe add an interface, for now it's ok.
+    // @todo Maybe add an interface, for now it's ok.
     /** @var \Drupal\lgpd_dump\Sql\lgpdSqlBase $instance */
-    // @todo: Maybe use classResolver.
+    // @todo Maybe use classResolver.
     $instance = new $className($dbSpec, $options);
     // Inject config.
     $instance->setConfig(Drush::config());

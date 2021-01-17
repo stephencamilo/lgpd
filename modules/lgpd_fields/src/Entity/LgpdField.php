@@ -8,7 +8,7 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 /**
  * Metadata for a lgpd field.
  */
-class lgpdField {
+class LgpdField {
 
   /**
    * Indicates a relationship is not enabled for lgpd processing.
@@ -103,7 +103,7 @@ class lgpdField {
   public $entityTypeId;
 
   /**
-   * lgpdField constructor.
+   * LgpdField constructor.
    *
    * @param array $values
    *   Underlying data values for the field.

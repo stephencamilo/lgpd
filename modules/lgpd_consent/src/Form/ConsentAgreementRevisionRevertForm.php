@@ -119,8 +119,14 @@ class ConsentAgreementRevisionRevertForm extends ConfirmFormBase {
     $this->revision->revision_log = $this->t('Copy of the revision from %date.', ['%date' => $this->dateFormatter->format($originalRevisionTimestamp)]);
     $this->revision->save();
 
-    $this->logger('content')->notice('Consent Agreement: reverted %title revision %revision.', ['%title' => $this->revision->label(), '%revision' => $this->revision->getRevisionId()]);
-    \Drupal::messenger()->addMessage($this->t('Consent Agreement %title has been reverted to the revision from %revision-date.', ['%title' => $this->revision->label(), '%revision-date' => $this->dateFormatter->format($originalRevisionTimestamp)]));
+    $this->logger('content')->notice('Consent Agreement: reverted %title revision %revision.', [
+      '%title' => $this->revision->label(),
+      '%revision' => $this->revision->getRevisionId(),
+    ]);
+    \Drupal::messenger()->addMessage($this->t('Consent Agreement %title has been reverted to the revision from %revision-date.', [
+      '%title' => $this->revision->label(),
+      '%revision-date' => $this->dateFormatter->format($originalRevisionTimestamp),
+    ]));
     $form_state->setRedirect(
       'entity.lgpd_consent_agreement.version_history',
       ['lgpd_consent_agreement' => $this->revision->id()]

@@ -12,14 +12,14 @@ use Drupal\lgpd_dump\Service\lgpdDatabaseManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class SettingsForm.
+ * Class Settings Form.
  *
  * @package Drupal\lgpd_dump\Form
  */
 class SettingsForm extends ConfigFormBase {
 
-  const lgpd_DUMP_CONF_KEY = 'lgpd_dump.table_map';
-  const lgpd_DUMP_NO_PLUGIN_KEY = 'none';
+  const LGPD_DUMP_CONF_KEY = 'lgpd_dump.table_map';
+  const LGPD_DUMP_NO_PLUGIN_KEY = 'none';
 
   /**
    * Database connection.

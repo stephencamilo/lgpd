@@ -5,9 +5,9 @@ namespace Drupal\lgpd_consent\ConsentUserResolver;
 use Drupal\Core\Entity\EntityInterface;
 
 /**
- * Interface lgpdConsentUserResolverInterface.
+ * Interface Lgpd Consent User Resolver Interface.
  */
-interface lgpdConsentUserResolverInterface {
+interface LgpdConsentUserResolverInterface {
 
   /**
    * Gets the user reference from the specified entity.

@@ -8,7 +8,7 @@ use Drupal\Core\Url;
 /**
  * Delete confirmation form for lgpd field settings.
  */
-class lgpdFieldSettingsDeleteForm extends EntityConfirmFormBase {
+class LgpdFieldSettingsDeleteForm extends EntityConfirmFormBase {
 
   /**
    * {@inheritdoc}

@@ -13,6 +13,7 @@ use Drupal\Core\Queue\QueueWorkerBase;
 use Drupal\lgpd_fields\EntityTraversalFactory;
 use Drupal\lgpd_tasks\Entity\TaskInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * Processes SARs tasks when data processing is required.
@@ -26,7 +27,9 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   cron = {"time" = 60}
  * )
  */
-class lgpdTasksSarWorker extends QueueWorkerBase implements ContainerFactoryPluginInterface {
+class LgpdTasksSarWorker extends QueueWorkerBase implements ContainerFactoryPluginInterface {
+
+  use StringTranslationTrait;
 
   /**
    * The message storage handler.
@@ -135,7 +138,7 @@ class lgpdTasksSarWorker extends QueueWorkerBase implements ContainerFactoryPlug
    */
   public function processItem($data) {
     if (!empty($data)) {
-      /* @var \Drupal\lgpd_tasks\Entity\TaskInterface $task */
+      /** @var \Drupal\lgpd_tasks\Entity\TaskInterface $task */
       $task = $this->taskStorage->load($data);
 
       // Work out where we are up to and what to do next.
@@ -173,9 +176,9 @@ class lgpdTasksSarWorker extends QueueWorkerBase implements ContainerFactoryPlug
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function initialise(TaskInterface $task, $build_now = FALSE) {
-    /* @var \Drupal\file\Plugin\Field\FieldType\FileFieldItemList $field */
+    /** @var \Drupal\file\Plugin\Field\FieldType\FileFieldItemList $field */
     $field = $task->get('sar_export');
-    /* @var \Drupal\Core\Field\FieldDefinitionInterface $field_definition */
+    /** @var \Drupal\Core\Field\FieldDefinitionInterface $field_definition */
     $field_definition = $field->getFieldDefinition();
     $settings = $field_definition->getSettings();
 
@@ -184,7 +187,7 @@ class lgpdTasksSarWorker extends QueueWorkerBase implements ContainerFactoryPlug
       'name' => $field->getName(),
       'parent' => $field->getParent(),
     ];
-    /* @var \Drupal\file\Plugin\Field\FieldType\FileItem $field_type */
+    /** @var \Drupal\file\Plugin\Field\FieldType\FileItem $field_type */
     $field_type = $this->fieldTypePluginManager->createInstance($field_definition->getType(), $config);
 
     // Prepare destination.
@@ -246,9 +249,9 @@ class lgpdTasksSarWorker extends QueueWorkerBase implements ContainerFactoryPlug
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function build(TaskInterface $task) {
-    /* @var \Drupal\file\Plugin\Field\FieldType\FileFieldItemList $field */
+    /** @var \Drupal\file\Plugin\Field\FieldType\FileFieldItemList $field */
     $field = $task->get('sar_export');
-    /* @var \Drupal\Core\Field\FieldDefinitionInterface $field_definition */
+    /** @var \Drupal\Core\Field\FieldDefinitionInterface $field_definition */
     $field_definition = $field->getFieldDefinition();
     $settings = $field_definition->getSettings();
 
@@ -257,7 +260,7 @@ class lgpdTasksSarWorker extends QueueWorkerBase implements ContainerFactoryPlug
       'name' => $field->getName(),
       'parent' => $field->getParent(),
     ];
-    /* @var \Drupal\file\Plugin\Field\FieldType\FileItem $field_type */
+    /** @var \Drupal\file\Plugin\Field\FieldType\FileItem $field_type */
     $field_type = $this->fieldTypePluginManager->createInstance($field_definition->getType(), $config);
 
     // Prepare destination.
@@ -265,7 +268,7 @@ class lgpdTasksSarWorker extends QueueWorkerBase implements ContainerFactoryPlug
     $directory .= '/' . basename($field->entity->uri->value, '.zip');
 
     // Gather our entities.
-    // @todo: Move this inline.
+    // @todo Move this inline.
     $rtaTraversal = $this->rtaTraversal->getTraversal($task->getOwner());
     $rtaTraversal->traverse();
     $all_data = $rtaTraversal->getResults();
@@ -339,10 +342,10 @@ class lgpdTasksSarWorker extends QueueWorkerBase implements ContainerFactoryPlug
    */
   public function compile(TaskInterface $task) {
     // Compile all files into a single zip.
-    /* @var \Drupal\file\Entity\File $file */
+    /** @var \Drupal\file\Entity\File $file */
     $file = $task->sar_export->entity;
     if (NULL === $file) {
-      $this->messenger->addError(t('SARs Export File not found for task @task_id.', ['@task_id' => $task->id()]));
+      $this->messenger->addError($this->t('SARs Export File not found for task @task_id.', ['@task_id' => $task->id()]));
       return;
     }
 
@@ -350,20 +353,20 @@ class lgpdTasksSarWorker extends QueueWorkerBase implements ContainerFactoryPlug
 
     $zip = new \ZipArchive();
     if (!$zip->open($file_path, \ZipArchive::CREATE | \ZipArchive::OVERWRITE)) {
-      // @todo: Improve error handling.
-      $this->messenger->addError(t('Error opening file.'));
+      // @todo Improve error handling.
+      $this->messenger->addError($this->t('Error opening file.'));
       return;
     }
 
     // Gather all the files we need to include in this package.
     $part_files = [];
     foreach ($task->sar_export_parts as $item) {
-      /* @var \Drupal\file\Entity\File $part_file */
+      /** @var \Drupal\file\Entity\File $part_file */
       $part_file = $item->entity;
       $part_files[] = $part_file;
 
       // Add the file to the zip.
-      // @todo: Add error handling.
+      // @todo Add error handling.
       $zip->addFile($this->fileSystem->realpath($part_file->uri->value), $part_file->filename->value);
     }
 
@@ -373,7 +376,7 @@ class lgpdTasksSarWorker extends QueueWorkerBase implements ContainerFactoryPlug
 
       // Add the file to the zip.
       $filename = "assets/{$asset_file->fid->value}." . pathinfo($asset_file->uri->value, PATHINFO_EXTENSION);
-      // @todo: Add error handling.
+      // @todo Add error handling.
       $zip->addFile($this->fileSystem->realpath($asset_file->uri->value), $filename);
     }
 
@@ -382,7 +385,7 @@ class lgpdTasksSarWorker extends QueueWorkerBase implements ContainerFactoryPlug
     $task->sar_export_assets = NULL;
 
     // Close the zip to write it to disk.
-    // @todo: Add error handling.
+    // @todo Add error handling.
     $zip->close();
 
     // Save the file to update the file size.
@@ -408,7 +411,7 @@ class lgpdTasksSarWorker extends QueueWorkerBase implements ContainerFactoryPlug
    * @return array
    *   CSV file data.
    *
-   * @todo: Use something like this instead:
+   * @todo Use something like this instead:
    *        \Consolidation\OutputFormatters\Formatters\CsvFormatter
    */
   public static function readCsv($filename) {
@@ -429,7 +432,7 @@ class lgpdTasksSarWorker extends QueueWorkerBase implements ContainerFactoryPlug
    * @param array $content
    *   The data to write, an array containing each row as an array.
    *
-   * @todo: Use something like this instead:
+   * @todo Use something like this instead:
    *        \Consolidation\OutputFormatters\Formatters\CsvFormatter
    */
   protected function writeCsv($filename, array $content) {

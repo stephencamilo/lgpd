@@ -172,8 +172,8 @@ abstract class EntityTraversal implements EntityTraversalInterface {
     // in an infinite loop by processing the same entity again.
     $this->entities[$entity_type][$entity->id()] = $entity;
 
-    // lgpd config for this entity.
-    /* @var \Drupal\lgpd_fields\Entity\lgpdFieldConfigEntity $config */
+    // Lgpd config for this entity.
+    /** @var \Drupal\lgpd_fields\Entity\lgpdFieldConfigEntity $config */
     $config = $this->configStorage->load($entity_type);
     if (NULL === $config) {
       return;
@@ -235,7 +235,7 @@ abstract class EntityTraversal implements EntityTraversalInterface {
    * @param \Drupal\Core\Entity\FieldableEntityInterface $entity
    *   The entity to handle.
    * @param \Drupal\lgpd_fields\Entity\lgpdFieldConfigEntity $config
-   *   lgpd config for this entity.
+   *   Lgpd config for this entity.
    * @param string $row_id
    *   Row identifier used in SARs.
    * @param \Drupal\lgpd_fields\Entity\lgpdField|null $parent_config
@@ -257,7 +257,7 @@ abstract class EntityTraversal implements EntityTraversalInterface {
     }
 
     $this->reverseRelationshipFields = [];
-    /* @var \Drupal\lgpd_fields\Entity\lgpdFieldConfigEntity $config  */
+    /** @var \Drupal\lgpd_fields\Entity\lgpdFieldConfigEntity $config  */
     foreach ($this->configStorage->loadMultiple() as $config) {
       foreach ($config->getAllFields() as $field) {
         if ($field->enabled && $field->isOwner()) {

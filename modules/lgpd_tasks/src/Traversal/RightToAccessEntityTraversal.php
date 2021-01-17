@@ -16,6 +16,9 @@ use Drupal\lgpd_fields\EntityTraversal;
  */
 class RightToAccessEntityTraversal extends EntityTraversal {
 
+  /**
+   * {@inheritdoc}
+   */
   private $assets = [];
 
   /**
@@ -32,7 +35,10 @@ class RightToAccessEntityTraversal extends EntityTraversal {
 
       // If the field is not configured, not enabled,
       // or not enabled for RTA, then skip it.
-      if ($field_config === NULL || !$field_config->enabled || !in_array($field_config->rta, ['inc', 'maybe'])) {
+      if ($field_config === NULL || !$field_config->enabled || !in_array($field_config->rta, [
+        'inc',
+        'maybei',
+      ])) {
         continue;
       }
 
@@ -79,14 +85,14 @@ class RightToAccessEntityTraversal extends EntityTraversal {
     // For files, we want to add to the assets collection.
     $labels = [];
     if ($entity->{$field_id} instanceof EntityReferenceFieldItemList && $field->getSetting('target_type') == 'file') {
-      /* @var \Drupal\file\Entity\File $file */
+      /** @var \Drupal\file\Entity\File $file */
       foreach ($entity->{$field_id}->referencedEntities() as $file) {
         $this->assets[] = ['target_id' => $file->id(), 'display' => 1];
         $labels[] = "assets/{$file->id()}." . pathinfo($file->getFileUri(), PATHINFO_EXTENSION);
       }
     }
     elseif ($entity->{$field_id} instanceof EntityReferenceFieldItemList) {
-      /* @var \Drupal\Core\Entity\EntityInterface $referenced_entity */
+      /** @var \Drupal\Core\Entity\EntityInterface $referenced_entity */
       foreach ($entity->{$field_id}->referencedEntities() as $referenced_entity) {
         if ($referenced_entity->label()) {
           $labels[] = "{$referenced_entity->label()} [{$referenced_entity->id()}]";

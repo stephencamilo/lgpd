@@ -6,7 +6,7 @@ use Drupal\anonymizer\Anonymizer\AnonymizerBase;
 use Drupal\Core\Field\FieldItemListInterface;
 
 /**
- * Class UriAnonymizer.
+ * Class Uri Anonymizer.
  *
  * @Anonymizer(
  *   id = "uri_anonymizer",
@@ -22,7 +22,7 @@ class UriAnonymizer extends AnonymizerBase {
    * {@inheritdoc}
    */
   public function anonymize($input, FieldItemListInterface $field = NULL) {
-    // @todo: Force https?
+    // @todo Force https?
     return $this->faker->generator()->url;
   }
 

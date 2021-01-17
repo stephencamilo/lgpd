@@ -11,7 +11,7 @@ use Drupal\lgpd_tasks\Entity\Task;
 /**
  * Form for user task requests.
  */
-class CreatelgpdRequestOnBehalfOfUserForm extends FormBase {
+class CreateLgpdRequestOnBehalfOfUserForm extends FormBase {
   /**
    * The lgpd_tasks_process_lgpd_sar queue.
    *

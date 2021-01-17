@@ -95,7 +95,7 @@ class RightToBeForgottenEntityTraversal extends EntityTraversal {
 
     // Re-load a fresh copy of the entity from storage so we don't
     // end up modifying any other references to the entity in memory.
-    /* @var \Drupal\Core\Entity\FieldableEntityInterface $entity */
+    /** @var \Drupal\Core\Entity\FieldableEntityInterface $entity */
     $entity = $this->entityTypeManager->getStorage($entity_type)
       ->loadUnchanged($entity->id());
 
@@ -202,7 +202,7 @@ class RightToBeForgottenEntityTraversal extends EntityTraversal {
    * @param \Drupal\Core\Field\FieldDefinitionInterface $field_definition
    *   The field definition.
    * @param \Drupal\lgpd_fields\Entity\lgpdField $field_config
-   *   lgpd field configuration.
+   *   Lgpd field configuration.
    *
    * @return array
    *   First element is success boolean, second element is the error message.
@@ -234,7 +234,7 @@ class RightToBeForgottenEntityTraversal extends EntityTraversal {
    * @param \Drupal\Core\Field\FieldDefinitionInterface $field_definition
    *   The field definition.
    * @param \Drupal\lgpd_fields\Entity\lgpdField $field_config
-   *   lgpd field configuration.
+   *   Lgpd field configuration.
    *
    * @return string
    *   The anonymizer ID or null.

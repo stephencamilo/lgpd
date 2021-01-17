@@ -12,13 +12,13 @@ use Drush\Drush;
 use Drush\Sql\SqlException;
 
 /**
- * Class lgpdSqlDump.
+ * Class Lgpd Sql Dump.
  *
  * @package Drupal\lgpd_dump\Service
  */
-class lgpdSqlDump {
+class LgpdSqlDump {
 
-  const lgpd_TABLE_PREFIX = 'lgpd_clone_';
+  const LGPD_TABLE_PREFIX = 'lgpd_clone_';
 
   /**
    * The lgpd table settings.
@@ -42,7 +42,7 @@ class lgpdSqlDump {
   protected $database;
 
   /**
-   * lgpd database manager.
+   * Lgpd database manager.
    *
    * @var \Drupal\lgpd_dump\Service\lgpdDatabaseManager
    */
@@ -72,7 +72,7 @@ class lgpdSqlDump {
   protected $sql;
 
   /**
-   * lgpdSqlDump constructor.
+   * LgpdSqlDump constructor.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
    *   Config factory.
@@ -192,7 +192,7 @@ class lgpdSqlDump {
     foreach ($tables as $table) {
       $queryString = $this->createCloneQueryString($table);
       if (NULL === $queryString) {
-        // @todo: Notify?
+        // @todo Notify?
         continue;
       }
 
@@ -233,7 +233,7 @@ class lgpdSqlDump {
       $oldRows = $selectQuery->execute();
 
       if (NULL === $oldRows) {
-        // @todo: notify
+        // @todo notify
         continue;
       }
 
@@ -249,7 +249,7 @@ class lgpdSqlDump {
 
       $result = $query->execute();
       if (NULL === $result) {
-        // @todo: Notify.
+        // @todo Notify.
         continue;
       }
       $columnDetails = $result->fetchAllAssoc('COLUMN_NAME');

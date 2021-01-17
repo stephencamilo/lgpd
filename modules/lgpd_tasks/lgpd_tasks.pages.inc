@@ -26,16 +26,16 @@ use Drupal\Core\Render\Element;
  */
 function template_preprocess_lgpd_task(array &$variables) {
   // Fetch Task Entity Object.
-  /* @var \Drupal\lgpd_tasks\Entity\TaskInterface $lgpdTask */
+  /** @var \Drupal\lgpd_tasks\Entity\TaskInterface $lgpdTask */
   $lgpdTask = $variables['elements']['#lgpd_task'];
 
   $bundleStorage = \Drupal::entityTypeManager()->getStorage($lgpdTask->getEntityType()->getBundleEntityType());
   $variables['type'] = $bundleStorage->load($lgpdTask->bundle())->label();
 
-  /* @var \Drupal\lgpd_tasks\Entity\TaskInterface $entity */
+  /** @var \Drupal\lgpd_tasks\Entity\TaskInterface $entity */
   switch ($lgpdTask->bundle()) {
     case 'lgpd_remove':
-      /* @var \Drupal\lgpd_tasks\Traversal\RightToBeForgottenDisplayTraversal $traverser */
+      /** @var \Drupal\lgpd_tasks\Traversal\RightToBeForgottenDisplayTraversal $traverser */
       $traverser = \Drupal::service('lgpd_tasks.rtf_display_traversal')->getTraversal($lgpdTask->getOwner());
       $rows = $traverser->getResults();
 
@@ -59,7 +59,7 @@ function template_preprocess_lgpd_task(array &$variables) {
       break;
 
     case 'lgpd_sar':
-      /* @var \Drupal\lgpd_tasks\Traversal\RightToAccessDisplayTraversal $traverser */
+      /** @var \Drupal\lgpd_tasks\Traversal\RightToAccessDisplayTraversal $traverser */
       $traverser = \Drupal::service('lgpd_tasks.rta_display_traversal')->getTraversal($lgpdTask->getOwner());
       $rows = $traverser->getResults();
 
