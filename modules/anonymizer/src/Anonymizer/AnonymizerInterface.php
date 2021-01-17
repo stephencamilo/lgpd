@@ -5,7 +5,7 @@ namespace Drupal\anonymizer\Anonymizer;
 use Drupal\Core\Field\FieldItemListInterface;
 
 /**
- * Interface AnonymizerInterface.
+ * Interface Anonymizer Interface.
  *
  * @package Drupal\anonymizer\Anonymizer
  */

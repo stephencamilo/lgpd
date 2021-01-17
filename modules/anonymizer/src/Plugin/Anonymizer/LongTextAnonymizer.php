@@ -6,7 +6,7 @@ use Drupal\anonymizer\Anonymizer\AnonymizerBase;
 use Drupal\Core\Field\FieldItemListInterface;
 
 /**
- * Class LongTextAnonymizer.
+ * Class Long Text Anonymizer.
  *
  * @Anonymizer(
  *   id = "long_text_anonymizer",

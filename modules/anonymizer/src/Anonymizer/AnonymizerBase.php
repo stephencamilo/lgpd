@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class AnonymizerBase.
+ * Class Anonymizer Base.
  *
  * @package Drupal\anonymizer\Anonymizer
  */

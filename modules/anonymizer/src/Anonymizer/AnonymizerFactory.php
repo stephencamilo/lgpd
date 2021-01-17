@@ -3,7 +3,7 @@
 namespace Drupal\anonymizer\Anonymizer;
 
 /**
- * Class AnonymizerFactory.
+ * Class Anonymizer Factory.
  *
  * @package Drupal\anonymizer\Anonymizer
  */

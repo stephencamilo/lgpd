@@ -16,7 +16,7 @@ use Drupal\lgpd_tasks\Form\CreatelgpdRequestOnBehalfOfUserForm;
 /**
  * Returns responses for Views UI routes.
  */
-class lgpdController extends ControllerBase {
+class LGPDController extends ControllerBase {
 
   /**
    * The task manager service.
