@@ -5,9 +5,9 @@ namespace Drupal\lgpd_dump\Sql;
 use Drush\Sql\SqlOracle;
 
 /**
- * Class lgpdSqlOracle.
+ * Class Lgpd Sql Oracle.
  *
  * @package Drupal\lgpd_dump\Sql
  */
-class lgpdSqlOracle extends SqlOracle {
+class LgpdSqlOracle extends SqlOracle {
 }

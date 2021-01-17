@@ -6,7 +6,7 @@ use Drupal\anonymizer\Anonymizer\AnonymizerBase;
 use Drupal\Core\Field\FieldItemListInterface;
 
 /**
- * Class NumberAnonymizer.
+ * Class Number Anonymizer.
  *
  * @Anonymizer(
  *   id = "number_anonymizer",

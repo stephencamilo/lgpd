@@ -3,7 +3,7 @@
 namespace Drupal\anonymizer\Service;
 
 /**
- * Interface FakerServiceInterface.
+ * Interface Faker Service Interface.
  *
  * @package Drupal\anonymizer\Service
  */

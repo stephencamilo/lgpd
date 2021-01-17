@@ -9,5 +9,5 @@ use Drush\Sql\SqlSqlsrv;
  *
  * @package Drupal\lgpd_dump\Sql
  */
-class lgpdSqlSqlsrv extends SqlSqlsrv {
+class LgpdSqlSqlsrv extends SqlSqlsrv {
 }

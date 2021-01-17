@@ -13,9 +13,9 @@ use Drupal\lgpd_fields\Entity\lgpdFieldConfigEntity;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * lgpd Field settings.
+ * Lgpd Field settings.
  */
-class lgpdFieldSettingsForm extends FormBase {
+class LgpdFieldSettingsForm extends FormBase {
 
   /**
    * The entity field manager used to work with fields.
@@ -32,7 +32,7 @@ class lgpdFieldSettingsForm extends FormBase {
   protected $entityTypeManager;
 
   /**
-   * lgpdFieldSettingsForm constructor.
+   * LgpdFieldSettingsForm constructor.
    *
    * @param \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager
    *   Entity field manager.
@@ -125,7 +125,7 @@ class lgpdFieldSettingsForm extends FormBase {
       ->setSarsFilename($sars_filename);
 
     $storage = $this->entityTypeManager->getStorage('lgpd_fields_config');
-    /* @var \Drupal\lgpd_fields\Entity\lgpdFieldConfigEntity $config */
+    /** @var \Drupal\lgpd_fields\Entity\lgpdFieldConfigEntity $config */
     $config = $storage->load($entity_type);
 
     if (!$config) {
@@ -243,8 +243,8 @@ class lgpdFieldSettingsForm extends FormBase {
   public static function buildFormFields(array &$form, $entity_type = NULL, $bundle_name = NULL, $field_name = NULL) {
     $config = static::getConfig($entity_type, $bundle_name, $field_name);
 
-    /* @var \Drupal\Core\Entity\EntityFieldManagerInterface $field_manager */
-    /* @var \Drupal\anonymizer\Anonymizer\AnonymizerFactory $anonymizer_factory */
+    /** @var \Drupal\Core\Entity\EntityFieldManagerInterface $field_manager */
+    /** @var \Drupal\anonymizer\Anonymizer\AnonymizerFactory $anonymizer_factory */
     $entity_type_manager = \Drupal::entityTypeManager();
     $field_manager = \Drupal::service('entity_field.manager');
     $anonymizer_factory = \Drupal::service('anonymizer.anonymizer_factory');
@@ -282,8 +282,14 @@ class lgpdFieldSettingsForm extends FormBase {
         '#default_value' => $config->relationship,
         '#options' => [
           lgpdField::RELATIONSHIP_DISABLED => new TranslatableMarkup('Do not follow this relationship.'),
-          lgpdField::RELATIONSHIP_FOLLOW => new TranslatableMarkup('This %entity_type_label owns the referenced %target_entity_type_label (Relationship will be followed)', ['%entity_type_label' => $entity_definition->getLabel(), '%target_entity_type_label' => $inner_entity_definition->getLabel()]),
-          lgpdField::RELATIONSHIP_OWNER => new TranslatableMarkup('This %entity_type_label is owned by the referenced %target_entity_type_label', ['%entity_type_label' => $entity_definition->getLabel(), '%target_entity_type_label' => $inner_entity_definition->getLabel()]),
+          lgpdField::RELATIONSHIP_FOLLOW => new TranslatableMarkup('This %entity_type_label owns the referenced %target_entity_type_label (Relationship will be followed)', [
+            '%entity_type_label' => $entity_definition->getLabel(),
+            '%target_entity_type_label' => $inner_entity_definition->getLabel(),
+          ]),
+          lgpdField::RELATIONSHIP_OWNER => new TranslatableMarkup('This %entity_type_label is owned by the referenced %target_entity_type_label', [
+            '%entity_type_label' => $entity_definition->getLabel(),
+            '%target_entity_type_label' => $inner_entity_definition->getLabel(),
+          ]),
         ],
         '#title' => t('Relationship Handling'),
         '#description' => new TranslatableMarkup('Owned entities are included in any task which contains the owner.', [
@@ -337,8 +343,8 @@ class lgpdFieldSettingsForm extends FormBase {
       $form['lgpd_rtf']['#options']['remove'] = new TranslatableMarkup('Delete entire entity');
 
       // Define target filename for this bundle.
-      // @todo: Move to a form alter in lgpd_tasks.
-      // @todo: Add <inherit> option to inherit owned entity filename.
+      // @todo Move to a form alter in lgpd_tasks.
+      // @todo Add <inherit> option to inherit owned entity filename.
       $form['lgpd_sars_filename'] = [
         '#type' => 'textfield',
         '#title' => t('Right to access filename'),

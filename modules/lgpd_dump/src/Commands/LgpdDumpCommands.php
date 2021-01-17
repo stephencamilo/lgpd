@@ -7,13 +7,13 @@ use Drupal\lgpd_dump\Service\lgpdSqlDump;
 use Drush\Commands\DrushCommands;
 
 /**
- * Class lgpdDumpCommands.
+ * Class Lgpd Dump Commands.
  *
  * Drush 9 commands.
  *
  * @package Drupal\lgpd_dump\Commands
  */
-class lgpdDumpCommands extends DrushCommands {
+class LgpdDumpCommands extends DrushCommands {
 
   /**
    * The dump service.
@@ -30,7 +30,7 @@ class lgpdDumpCommands extends DrushCommands {
   protected $sanitizeService;
 
   /**
-   * lgpdDumpCommands constructor.
+   * Lgpd Dump Commands constructor.
    *
    * @param \Drupal\lgpd_dump\Service\lgpdSqlDump $dump
    *   The dump service.

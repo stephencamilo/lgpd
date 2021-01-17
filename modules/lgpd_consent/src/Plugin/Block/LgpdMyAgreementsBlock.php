@@ -20,7 +20,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   dashboard_block = TRUE
  * )
  */
-class lgpdMyAgreementsBlock extends BlockBase implements ContainerFactoryPluginInterface {
+class LgpdMyAgreementsBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * The class resolver.

@@ -12,7 +12,7 @@ use Drupal\lgpd_fields\Entity\lgpdFieldConfigEntity;
 /**
  * Defines a helper class for stuff related to views data.
  */
-class lgpdCollector {
+class LgpdCollector {
 
   /**
    * The entity type manager.
@@ -132,7 +132,7 @@ class lgpdCollector {
       }
 
       if ($lgpd_settings != NULL) {
-        /* @var \Drupal\lgpd_fields\Entity\lgpdField $field_settings */
+        /** @var \Drupal\lgpd_fields\Entity\lgpdField $field_settings */
         $field_settings = $lgpd_settings->getField($bundle_id, $field_id);
         if ($field_settings->enabled) {
           $has_at_least_one_configured_field = TRUE;

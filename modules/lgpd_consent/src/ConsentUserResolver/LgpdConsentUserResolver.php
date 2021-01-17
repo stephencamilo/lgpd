@@ -13,7 +13,7 @@ use Drupal\Component\Annotation\Plugin;
  *
  * @Annotation
  */
-class lgpdConsentUserResolver extends Plugin {
+class LgpdConsentUserResolver extends Plugin {
 
   /**
    * The plugin ID.

@@ -59,7 +59,9 @@ class ConsentAgreementForm extends ContentEntityForm {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    /* @var $entity \Drupal\lgpd_consent\Entity\ConsentAgreement */
+    /**
+     * @var \Drupal\lgpd_consent\Entity\ConsentAgreement $entity
+     */
     $form = parent::buildForm($form, $form_state);
 
     if (!$this->entity->isNew()) {

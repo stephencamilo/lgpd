@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @package Drupal\lgpd_fields\Form
  */
-class lgpdFieldFilterForm extends FormBase {
+class LgpdFieldFilterForm extends FormBase {
 
   /**
    * Entity type manager.
@@ -25,7 +25,7 @@ class lgpdFieldFilterForm extends FormBase {
   protected $entityTypeManager;
 
   /**
-   * lgpdFieldFilterForm constructor.
+   * LgpdFieldFilterForm constructor.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   Entity type manager.

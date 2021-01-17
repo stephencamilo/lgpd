@@ -6,7 +6,7 @@ use Drupal\anonymizer\Anonymizer\AnonymizerBase;
 use Drupal\Core\Field\FieldItemListInterface;
 
 /**
- * Class RandomTextAnonymizer.
+ * Class Random Text Anonymizer.
  *
  * @Anonymizer(
  *   id = "random_text_anonymizer",

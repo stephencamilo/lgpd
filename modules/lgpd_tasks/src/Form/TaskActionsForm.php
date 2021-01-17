@@ -96,7 +96,7 @@ class TaskActionsForm extends ContentEntityForm {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form = parent::buildForm($form, $form_state);
 
-    /* @var $entity \Drupal\lgpd_tasks\Entity\Task */
+    /** @var \Drupal\lgpd_tasks\Entity\Task $entity */
     $entity = $this->entity;
 
     if (in_array($entity->getStatus(), ['processed', 'closed'])) {
@@ -125,7 +125,7 @@ class TaskActionsForm extends ContentEntityForm {
    * @throws \Drupal\Core\TypedData\Exception\ReadOnlyException
    */
   private function doRemoval(FormStateInterface $form_state) {
-    /* @var $entity \Drupal\lgpd_tasks\Entity\Task */
+    /** @var \Drupal\lgpd_tasks\Entity\Task $entity */
     $entity = $this->entity;
     $email = $entity->getOwner()->getEmail();
     $errors = $this->anonymizer->run($entity);
@@ -165,7 +165,7 @@ class TaskActionsForm extends ContentEntityForm {
    * {@inheritdoc}
    */
   public function save(array $form, FormStateInterface $form_state) {
-    /* @var $entity \Drupal\lgpd_tasks\Entity\TaskInterface */
+    /** @var \Drupal\lgpd_tasks\Entity\TaskInterface $entity */
     $entity = $this->entity;
 
     if ($entity->bundle() == 'lgpd_remove') {

@@ -68,7 +68,9 @@ class UserConsentItem extends FieldItemBase {
   public function postSave($update) {
     $definition = $this->getFieldDefinition();
 
-    /* @var \Drupal\lgpd_consent\ConsentUserResolver\ConsentUserResolverPluginManager $plugin_manager */
+    /**
+     * @var \Drupal\lgpd_consent\ConsentUserResolver\ConsentUserResolverPluginManager $plugin_manager
+     */
     $plugin_manager = \Drupal::service('plugin.manager.lgpd_consent_resolver');
     $resolver = $plugin_manager->getForEntityType($definition->getTargetEntityTypeId(), $definition->getTargetBundle());
     $user = $resolver->resolve($this->getEntity());
@@ -95,7 +97,10 @@ class UserConsentItem extends FieldItemBase {
       $msg = Message::create(['template' => 'consent_agreement_accepted']);
       $msg->set('user', $this->user_id);
       $msg->set('user_accepted', $this->user_id_accepted);
-      $msg->set('agreement', ['target_id' => $this->target_id, 'target_revision_id' => $this->target_revision_id]);
+      $msg->set('agreement', [
+        'target_id' => $this->target_id,
+        'target_revision_id' => $this->target_revision_id,
+      ]);
       $msg->set('notes', $this->notes);
       $msg->set('agreed', $this->agreed);
       $msg->save();

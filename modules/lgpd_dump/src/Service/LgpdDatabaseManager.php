@@ -6,11 +6,11 @@ use Drupal\Core\Database\Connection;
 use Drupal\Core\Database\InvalidQueryException;
 
 /**
- * Class lgpdDatabaseManager.
+ * Class Lgpd Database Manager.
  *
  * @package Drupal\lgpd_dump\Service
  */
-class lgpdDatabaseManager {
+class LgpdDatabaseManager {
 
   /**
    * The database connection.
@@ -20,7 +20,7 @@ class lgpdDatabaseManager {
   protected $database;
 
   /**
-   * lgpdDatabaseManager constructor.
+   * LgpdDatabaseManager constructor.
    *
    * @param \Drupal\Core\Database\Connection $database
    *   The database connection.
@@ -65,7 +65,7 @@ class lgpdDatabaseManager {
    * @throws \Drupal\Core\Database\InvalidQueryException
    */
   protected function getColumns($table) {
-    // @todo: How cross-driver is this?
+    // @todo How cross-driver is this?
     $query = $this->database->select('information_schema.columns', 'columns');
     $query->fields('columns', ['COLUMN_NAME', 'DATA_TYPE', 'COLUMN_COMMENT']);
     $query->condition('TABLE_SCHEMA', $this->database->getConnectionOptions()['database']);

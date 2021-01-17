@@ -17,7 +17,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *   }
  * )
  */
-class lgpdFieldConfigEntity extends ConfigEntityBase {
+class LgpdFieldConfigEntity extends ConfigEntityBase {
 
   /**
    * The entity type ID of the base entity.

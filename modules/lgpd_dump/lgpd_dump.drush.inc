@@ -39,7 +39,10 @@ function lgpd_dump_drush_command() {
         'example-value' => '/path/to/file',
         'value' => 'optional',
       ],
-      'create-db' => ['hidden' => TRUE, 'description' => 'Omit DROP TABLE statements. Postgres and Oracle only.  Used by sql-sync, since including the DROP TABLE statements interfere with the import when the database is created.'],
+      'create-db' => [
+        'hidden' => TRUE,
+        'description' => 'Omit DROP TABLE statements. Postgres and Oracle only.  Used by sql-sync, since including the DROP TABLE statements interfere with the import when the database is created.',
+      ],
       'data-only' => 'Dump data without statements to create any of the schema.',
       'ordered-dump' => 'Order by primary key and add line breaks for efficient diff in revision control. Slows down the dump. Mysql only.',
       'gzip' => 'Compress the dump using the gzip program which must be in your $PATH.',

@@ -6,7 +6,7 @@ use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Class TaskTypeForm.
+ * Class Task Type Form.
  */
 class TaskTypeForm extends EntityForm {
 

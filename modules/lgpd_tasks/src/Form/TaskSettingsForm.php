@@ -6,7 +6,7 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Class TaskSettingsForm.
+ * Class Task Settings Form.
  *
  * @ingroup lgpd_tasks
  */

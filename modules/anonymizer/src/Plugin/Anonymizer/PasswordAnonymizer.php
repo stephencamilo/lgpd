@@ -9,7 +9,7 @@ use Drupal\Core\Password\PasswordInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class PasswordAnonymizer.
+ * Class Password Anonymizer.
  *
  * @Anonymizer(
  *   id = "password_anonymizer",
@@ -78,7 +78,7 @@ class PasswordAnonymizer extends AnonymizerBase {
    * {@inheritdoc}
    */
   public function anonymize($input, FieldItemListInterface $field = NULL) {
-    // @todo: Performance test for lots of data.
+    // @todo Performance test for lots of data.
     return $this->password->hash($this->faker->generator()->password(self::MIN_PASSWORD_LENGTH, self::MAX_PASSWORD_LENGTH));
   }
 

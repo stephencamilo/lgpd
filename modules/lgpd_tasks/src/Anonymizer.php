@@ -126,7 +126,7 @@ class Anonymizer {
       $transaction = $this->database->startTransaction();
 
       try {
-        /* @var \Drupal\Core\Entity\EntityInterface $entity */
+        /** @var \Drupal\Core\Entity\EntityInterface $entity */
         foreach ($successes as $entity) {
           $entity->save();
         }

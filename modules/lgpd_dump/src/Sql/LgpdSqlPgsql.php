@@ -5,9 +5,9 @@ namespace Drupal\lgpd_dump\Sql;
 use Drush\Sql\SqlPgsql;
 
 /**
- * Class lgpdSqlPgsql.
+ * Class Lgpd Sql Pgsql.
  *
  * @package Drupal\lgpd_dump\Sql
  */
-class lgpdSqlPgsql extends SqlPgsql {
+class LgpdSqlPgsql extends SqlPgsql {
 }
